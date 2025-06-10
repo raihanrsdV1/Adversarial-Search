@@ -1,0 +1,46 @@
+# macOS system files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Rust build artifacts
+*/target/
+target/
+
+# Game logs (may contain sensitive data or be large)
+game_log.txt
+*.log
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Generated charts/images (optional - comment out if you want to track them)
+# *.png
+# *.jpg
+# *.jpeg
+
+# Test executables
+test/main
+*/main
+
+# Node modules (if any JavaScript/Node projects)
+node_modules/
+
+# Environment files
+.env
+.env.local
+.env.*.local
