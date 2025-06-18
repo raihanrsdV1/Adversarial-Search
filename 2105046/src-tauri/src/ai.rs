@@ -250,7 +250,7 @@ fn evaluate_board(board: &Board, heuristics: &[Heuristic], player_for_pov: Playe
 
                                     if nr >= 0 && nr < board.height as isize && nc >= 0 && nc < board.width as isize {
                                         if let CellState::Occupied { player: neighbor_player, .. } = board.cells[nr as usize][nc as usize].state {
-                                            
+                                            // Count how many adjacent cells belong to the opponent.
                                             if neighbor_player != cell_player {
                                                 opponent_neighbors += 1;
                                             }
@@ -259,7 +259,9 @@ fn evaluate_board(board: &Board, heuristics: &[Heuristic], player_for_pov: Playe
                                 }
                                 
                                 if opponent_neighbors > 0 {
-
+                                    // The potential is the number of opponent cells that would be captured,
+                                    // weighted by how close the cell is to exploding.
+                                    // A smaller 'orbs_to_explode' value leads to a higher potential score.
                                     let potential = opponent_neighbors as f64 / orbs_to_explode;
 
                                     if cell_player == player {
